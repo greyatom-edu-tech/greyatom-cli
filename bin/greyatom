@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+require 'greyatom'
+
+if ['-v', '--version'].include?(ARGV.first)
+  puts Greyatom::VERSION
+  exit
+end
+
+Greyatom::OptionsSanitizer.new( ARGV ).sanitize!
+
+COMMANDS_THAT_REQUIRE_OAUTH = [
+	'submit',
+	'open'
+]
+
+netrc = Greyatom::NetrcInteractor.new()
+netrc.read
+token = netrc.password
+if token.nil? && COMMANDS_THAT_REQUIRE_OAUTH.include?(ARGV[0])
+	puts 'You are not authorized to use this command. Run `learn setup` get started.'
+	exit
+end
+
+Greyatom::CLI.start( ARGV )
