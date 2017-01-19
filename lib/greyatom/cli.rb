@@ -54,7 +54,7 @@ module Greyatom
 
     desc 'version, -v, --version', 'Display the current version of the Learn gem'
     def version
-      puts Greyatom::VERSION
+      puts Greyatom::Cli::VERSION
     end
   end
 end

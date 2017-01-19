@@ -3,7 +3,7 @@
 require 'greyatom'
 
 if ['-v', '--version'].include?(ARGV.first)
-  puts Greyatom::VERSION
+  puts Greyatom::Cli::VERSION
   exit
 end
 
