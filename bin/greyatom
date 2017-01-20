@@ -18,7 +18,7 @@ netrc = Greyatom::NetrcInteractor.new()
 netrc.read
 token = netrc.password
 if token.nil? && COMMANDS_THAT_REQUIRE_OAUTH.include?(ARGV[0])
-	puts 'You are not authorized to use this command. Run `learn setup` get started.'
+	puts 'You are not authorized to use this command. Run `greyatom setup` get started.'
 	exit
 end
 

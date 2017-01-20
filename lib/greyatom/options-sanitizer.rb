@@ -37,7 +37,7 @@ module Greyatom
     end
 
     def exitWithCannotUnderstand
-      puts "Sorry, I can't understand what you're trying to do. Type `learn help` for help."
+      puts "Sorry, I can't understand what you're trying to do. Type `greyatom help` for help."
       exit
     end
   end

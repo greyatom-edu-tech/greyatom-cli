@@ -52,7 +52,7 @@ module Greyatom
       Greyatom::Test.new().run
     end
 
-    desc 'version, -v, --version', 'Display the current version of the Learn gem'
+    desc 'version, -v, --version', 'Display the current version of the Greyatom gem'
     def version
       puts Greyatom::Cli::VERSION
     end
