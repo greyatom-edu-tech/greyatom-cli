@@ -13,6 +13,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/greyatom-edu-tech/greyatom-cli"
   spec.license       = "MIT"
 
+  spec.required_ruby_version = ">= 2.1.1"
+
   spec.files         = Dir["{bin,lib}/**/*", "LICENSE", "README.md"]
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib", "bin"]
