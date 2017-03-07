@@ -18,10 +18,10 @@ module Greyatom
 	      	@lesson = Greyatom::Current.new
 	    end
 
-		def openALesson
+		def openALesson(*puzzle_name)
 			# get currently active lesson
 			puts "Getting current lesson..."
-			lesson.getCurrentLesson
+			lesson.getCurrentLesson(puzzle_name)
 			@lessonName = lesson.getAttr('lesson_name')
 			if !File.exists?("#{rootDir}/#{lessonName}")
 				# fork lesson repo via github api

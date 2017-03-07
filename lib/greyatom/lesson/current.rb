@@ -5,7 +5,7 @@ module Greyatom
 	class Current
 		attr_accessor :lesson
 
-		def getCurrentLesson
+		def getCurrentLesson(*puzzle_name)
 			begin
 				Timeout::timeout(15) do
 					response = Greyatom::API.new().get('/bins/k8lsj')

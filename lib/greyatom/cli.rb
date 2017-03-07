@@ -3,6 +3,7 @@ require 'greyatom/netrc-interactor'
 require 'greyatom/tests/runner'
 require 'greyatom/lesson/submit'
 require 'greyatom/lesson/open'
+require 'greyatom/lesson/parser'
 require 'thor'
 
 module Greyatom
@@ -36,9 +37,10 @@ module Greyatom
     end
     
     desc "open", "This will fork new work"
-    def open()
+    def open(*puzzle_name)
       # Fork and Clone User's current lesson
-      Greyatom::Open.new().openALesson
+      lab_name = Greyatom::Puzzle::Parser.new(puzzle_name.join(' ')).parse!
+      Greyatom::Open.new().openALesson(lab_name)
     end
     
     desc "submit", "This will submit your work"
