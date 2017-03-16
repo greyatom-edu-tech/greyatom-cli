@@ -28,6 +28,8 @@ module Greyatom
 				forkCurrentLesson
 				# clone forked lesson into machine
 				cloneCurrentLesson
+				# change group owner
+				change_grp_owner
 			end
 			# install dependencies
 			# cd into it and invoke bash
@@ -67,6 +69,15 @@ module Greyatom
 	            puts "Cannot clone this lesson right now. Please try again."
 	            exit
 	        end
+		end
+
+		def change_grp_owner
+			results = system("chgrp -R ubuntu #{rootDir}/#{lessonName}")
+			if results
+				puts "..."
+			else
+	            puts "Couldn't change group ownership"
+			end
 		end
 
 		def cdToLesson
